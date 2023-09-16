@@ -1,0 +1,32 @@
+:root {
+    --azul-dark: #1E6F9F;
+    --azul: #4EA8DE;
+    --roxo-escuro: #5E60CE;
+    --roxo-claro: #8284FA;
+
+    --perigo: #E25858;
+
+    --cinza-100: #F2F2F2;
+    --cinza-200: #D9D9D9;
+    --cinza-300: #808080;
+    --cinza-400: #333333;
+    --cinza-500: #262626;
+    --cinza-600: #1A1A1A;
+    --cinza-700: #0D0D0D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cinza-600);
+    color: var(--cinza-300);
+}
+
+body, input, textarea, button {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
