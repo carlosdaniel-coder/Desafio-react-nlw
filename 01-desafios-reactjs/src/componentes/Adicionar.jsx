@@ -4,8 +4,8 @@ import { PlusCircle } from 'phosphor-react'
 export function Adicionar() {
     return (
         <div className={styles.pesquisa}>
-            <input type="text" />
-            <button><PlusCircle /></button>
+            <input placeholder='Adicione uma nova tarefa' type="text" />
+            <button>Criar  <PlusCircle size={16} /></button>
         </div>
     )
 }

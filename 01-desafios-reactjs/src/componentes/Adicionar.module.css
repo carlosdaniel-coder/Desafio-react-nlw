@@ -1,3 +1,51 @@
 .pesquisa {
-    
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pesquisa > input {
+    width: 39.875rem;
+    border: 1px solid var(--cinza-700);
+    border-radius: 8px;
+    background-color: var(--cinza-500);
+    padding: 1rem;
+    align-items: center;
+    color: white;
+    line-height: 140%;
+    font-weight: 400;
+    outline: 0;
+}
+
+.pesquisa > input::placeholder {
+    color: var(--cinza-300);
+}
+
+.pesquisa > input:focus {
+    border: 1px solid var(--roxo-escuro);
+}
+
+.pesquisa > button {
+    padding: 1rem;
+    background-color: var(--azul-escuro);
+    color: var(--cinza-100);
+    border: 0;
+    border-radius: 8px;
+    font-weight: 700;
+    line-height: 140%;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.pesquisa > button:hover {
+    background-color: var(--azul);
+}
+
+.pesquisa > button svg {
+    margin-left: 0.5rem;
 }
