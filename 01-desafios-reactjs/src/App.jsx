@@ -1,9 +1,14 @@
 import styles from './App.module.css'
+import { Adicionar } from './componentes/Adicionar'
+import { Header } from './componentes/Header'
 import './global.css'
 
 export function App() {
 
   return (
-    <h1>Olá mundo!</h1>
+    <div>
+      <Header />
+      <Adicionar />
+    </div>
   )
 }
