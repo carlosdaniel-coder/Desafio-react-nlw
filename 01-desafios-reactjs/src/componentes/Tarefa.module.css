@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    border-radius: 8px;
+    border: 1px solid var(--Gray-400, #333);
+    background: var(--Gray-500, #262626);
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+    padding: 1rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.container button {
+    background-color: transparent;
+    height: 2rem;
+    border: 0;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.status {
+    margin-right: 0.75rem;
+}
+
+.apagar {
+    color: var(--cinza-300);
+    margin-left: 0.75rem;
+    transition-duration: 0.1s;
+}
+
+.apagar:hover {
+    color: var(--perigo);
+    background-color: var(--cinza-400);
+}
+
+.flexionado {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container p {
+    color: var(--cinza-100);
+    line-height: 140%;
+    font-size: 0.875rem;
+    font-weight: 400;
+}

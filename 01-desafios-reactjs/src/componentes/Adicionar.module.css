@@ -3,11 +3,13 @@
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     display: flex;
+    justify-content: space-around;
     gap: 0.5rem;
+    width: 46rem;
 }
 
 .pesquisa > input {
-    width: 39.875rem;
+    flex: 1;
     border: 1px solid var(--cinza-700);
     border-radius: 8px;
     background-color: var(--cinza-500);
@@ -48,4 +50,10 @@
 
 .pesquisa > button svg {
     margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .pesquisa {
+        width: 90%;
+    }
 }

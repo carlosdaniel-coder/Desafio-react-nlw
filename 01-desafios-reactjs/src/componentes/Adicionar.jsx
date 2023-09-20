@@ -1,5 +1,5 @@
 import styles from './Adicionar.module.css'
-import { PlusCircle } from 'phosphor-react'
+import { PlusCircle } from '@phosphor-icons/react'
 
 export function Adicionar() {
     return (
