@@ -1,6 +1,7 @@
 .pesquisa {
     position: absolute;
     left: 50%;
+    top: 12.5rem;
     transform: translateX(-50%) translateY(-50%);
     display: flex;
     justify-content: space-around;
@@ -57,3 +58,66 @@
         width: 90%;
     }
 }
+
+.container {
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.info > .one {
+    color: var(--azul);
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.info > .one > span {
+    background-color: var(--cinza-400);
+    color: white;
+    margin-left: 0.5rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 100px;
+}
+
+.info > .two {
+    color: var(--roxo-claro);
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.info > .two > span {
+    background-color: var(--cinza-400);
+    color: white;
+    margin-left: 0.5rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 100px;
+}
+/*
+.resutados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 8px;
+    border-top: 1px solid var(--cinza-400);
+    width: 100%;
+    padding-top: 4rem;
+    margin: 0 auto;
+}
+
+.primeiro {
+    margin-top: 1rem;
+    font-weight: 700;
+    line-height: 140%;
+}
+
+.segundo {
+    font-weight: 400;
+    font-weight: lighter;
+}
+*/
