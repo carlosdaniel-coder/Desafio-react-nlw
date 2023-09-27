@@ -1,4 +1,4 @@
-import logo from '../assets/logo.svg'
+import logo from './img/zlogo.svg'
 import styles from './Header.module.css'
 
 export function Header() {

@@ -1,5 +1,5 @@
 import styles from './Adicionar.module.css'
-import { PlusCircle, ClipboardText } from '@phosphor-icons/react'
+import { PlusCircle } from '@phosphor-icons/react'
 import { Tarefa } from './Tarefa'
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
@@ -32,6 +32,15 @@ export function Adicionar() {
         }
     }
 
+    function excluir(propId) {
+        const updateItems = task.filter(item => item.id !== propId);
+        setTask(updateItems)
+    }
+
+    const count = () => {
+        return task.filter(tasks => tasks.completed === true).length;
+    }
+
     return (
         <div>
             <form onSubmit={maisUmaTarefa} className={styles.pesquisa}>
@@ -47,7 +56,7 @@ export function Adicionar() {
             <div className={styles.container}>
             <div className={styles.info}>
                 <p className={styles.one}>Tarefas criadas<span>{task.length}</span></p>
-                <p className={styles.two}>Concluídas<span>0</span></p>
+                <p className={styles.two}>Concluídas<span>{count()} de {task.length}</span></p>
             </div>
             {/*
                 <div className={styles.resutados}>
@@ -57,7 +66,7 @@ export function Adicionar() {
                 </div>
             */}
             {task.map(prop => {
-                return <Tarefa content={prop} key={prop.id} funsao={checked} />
+                return <Tarefa content={prop} key={prop.id} funsao1={checked} funsao2={excluir}/>
             })}
 
         </div>
