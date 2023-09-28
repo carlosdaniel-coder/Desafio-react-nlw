@@ -6,7 +6,19 @@ import IconC from '../assets/checked.svg';
 import IconCH from '../assets/checkedhover.svg';
 import { useState } from 'react';
 
-export function Tarefa({ content, funsao1, funsao2 }) {
+interface Content {
+    title: string;
+    id: string;
+    completed: boolean;
+}
+
+interface PostProps {
+    content: Content;
+    funsao1: (id: string) => void;
+    funsao2: (id: string) => void;
+}
+
+export function Tarefa({ content, funsao1, funsao2 }: PostProps) {
     const [icone, setIcone] = useState(IconN)
 
     const handleMouseHoverEnter = () => {
@@ -14,7 +26,7 @@ export function Tarefa({ content, funsao1, funsao2 }) {
       };
     
       const handleMouseHoverLeave = () => {
-        setIcone(icone === IconNH || icone === N ? IconN : IconC);
+        setIcone(icone === IconNH || icone === IconN ? IconN : IconC);
       };
     
       const handleClick = () => {

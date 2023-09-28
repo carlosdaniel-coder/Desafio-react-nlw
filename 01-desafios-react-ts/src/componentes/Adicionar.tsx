@@ -1,26 +1,32 @@
-import styles from './Adicionar.module.css'
-import { PlusCircle } from '@phosphor-icons/react'
-import { Tarefa } from './Tarefa'
-import { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid';
+import styles from './Adicionar.module.css';
+import { PlusCircle } from '@phosphor-icons/react';
+import { Tarefa } from './Tarefa';
+import { ChangeEvent, FormEvent, useState} from 'react';
+import { v4 as uuidv4} from 'uuid';
+
+interface Content {
+    title: string;
+    id: string;
+    completed: boolean;
+}
 
 export function Adicionar() {
     const [letrasLive, setLetrasLive] = useState('')
-    const [task, setTask] = useState([]);
+    const [task, setTask] = useState<Content[]>([]);
 
 
-    function handleLiveLetras() {
+    function handleLiveLetras( event : ChangeEvent<HTMLInputElement> ) {
         setLetrasLive(event.target.value)
     }
 
-    function maisUmaTarefa() {
+    function handleMaisUmaTarefa(event : FormEvent) {
         event.preventDefault()
-        const formatNovaTarefa = { title: letrasLive, id: uuidv4(), completed: false}
+        const formatNovaTarefa: Content = { title: letrasLive, id: uuidv4(), completed: false}
         setTask([...task, formatNovaTarefa])
         setLetrasLive('')
     }
 
-    function checked(propId) {
+    function checked(propId: string) {
         const taskCopy = [...task];
 
         const tarefaIndex = taskCopy.findIndex(tarefa => tarefa.id === propId)
@@ -32,7 +38,7 @@ export function Adicionar() {
         }
     }
 
-    function excluir(propId) {
+    function excluir(propId: string) {
         const updateItems = task.filter(item => item.id !== propId);
         setTask(updateItems)
     }
@@ -43,7 +49,7 @@ export function Adicionar() {
 
     return (
         <div>
-            <form onSubmit={maisUmaTarefa} className={styles.pesquisa}>
+            <form onSubmit={handleMaisUmaTarefa} className={styles.pesquisa}>
                 <input 
                     onChange={handleLiveLetras} 
                     placeholder='Adicione uma nova tarefa' 
