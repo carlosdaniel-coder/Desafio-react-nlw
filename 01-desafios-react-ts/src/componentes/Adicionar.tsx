@@ -3,6 +3,7 @@ import { PlusCircle } from '@phosphor-icons/react';
 import { Tarefa } from './Tarefa';
 import { ChangeEvent, FormEvent, useState} from 'react';
 import { v4 as uuidv4} from 'uuid';
+import { Nada } from './Nada';
 
 interface Content {
     title: string;
@@ -60,22 +61,26 @@ export function Adicionar() {
             </form>
 
             <div className={styles.container}>
-            <div className={styles.info}>
-                <p className={styles.one}>Tarefas criadas<span>{task.length}</span></p>
-                <p className={styles.two}>Concluídas<span>{count()} de {task.length}</span></p>
-            </div>
-            {/*
-                <div className={styles.resutados}>
-                    <ClipboardText size={70} />
-                    <p className={styles.primeiro}>Você ainda não tem tarefas cadastradas</p>
-                    <p className={styles.segundo}>Crie tarefas e organize seus itens a fazer</p>
+                <div className={styles.info}>
+                    <p className={styles.one}>Tarefas criadas<span>{task.length}</span></p>
+                    <p className={styles.two}>Concluídas<span>{count()} de {task.length}</span></p>
                 </div>
-            */}
-            {task.map(prop => {
-                return <Tarefa content={prop} key={prop.id} funsao1={checked} funsao2={excluir}/>
-            })}
 
-        </div>
+                {task.length === 0 ? <Nada /> : (
+
+                    task.map(prop => {
+                        return (
+                            <Tarefa 
+                            content={prop} 
+                            key={prop.id} 
+                            funsao1={checked} 
+                            funsao2={excluir}
+                            />
+                        )
+                    })
+                )}
+
+            </div>
 
         </div>
     )
