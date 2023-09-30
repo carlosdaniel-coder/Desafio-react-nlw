@@ -12,12 +12,14 @@ interface Content {
 }
 
 export function Adicionar() {
-    const [letrasLive, setLetrasLive] = useState('')
+    const [letrasLive, setLetrasLive] = useState('');
     const [task, setTask] = useState<Content[]>([]);
+    const [focus, setFocus] = useState(false)
 
 
     function handleLiveLetras( event : ChangeEvent<HTMLInputElement> ) {
-        setLetrasLive(event.target.value)
+        const parte = (event.target.value).slice(22)
+        setLetrasLive(parte)
     }
 
     function handleMaisUmaTarefa(event : FormEvent) {
@@ -39,6 +41,14 @@ export function Adicionar() {
         }
     }
 
+    const handleFocus = () => {
+        if (focus === false) {
+            setFocus(true)
+        } else {
+            setFocus(false)
+        }
+    }
+
     function excluir(propId: string) {
         const updateItems = task.filter(item => item.id !== propId);
         setTask(updateItems)
@@ -55,9 +65,11 @@ export function Adicionar() {
                     onChange={handleLiveLetras} 
                     placeholder='Adicione uma nova tarefa' 
                     type="text" 
-                    value={letrasLive}
+                    onFocus={handleFocus}
+                    onBlur={handleFocus}
+                    value={ (focus ? 'Descrição da tarefa | ' : '') + letrasLive}
                 />
-                <button>Criar<PlusCircle size={16} /></button>
+                <button disabled={letrasLive.length <= 0} >Criar<PlusCircle size={16} /></button>
             </form>
 
             <div className={styles.container}>
@@ -71,11 +83,12 @@ export function Adicionar() {
                     task.map(prop => {
                         return (
                             <Tarefa 
-                            content={prop} 
-                            key={prop.id} 
-                            funsao1={checked} 
-                            funsao2={excluir}
+                                content={prop} 
+                                key={prop.id} 
+                                funsao1={checked} 
+                                funsao2={excluir}
                             />
+                            
                         )
                     })
                 )}
