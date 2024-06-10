@@ -1,7 +1,14 @@
+import { ThemeProvider } from "styled-components";
+import { defaulTheme } from "./styles/theme/default";
+import { Nada } from "./Nada.styles";
+
+
+
 export function App() {
   return (
-    <>
-      <h1>oi</h1>
-    </>
+    <ThemeProvider theme={defaulTheme}>
+      <p></p>
+      <Nada> nada </Nada>
+    </ThemeProvider>
   )
 }
